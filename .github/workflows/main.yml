@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-       - name: Check out Repo
-         uses: actions/checkout@v3
-       - name: Run Docker Run!
-         run: curl -s https://raw.githubusercontent.com/perfsonar/docker-oneshot-builder/main/build | sh -s - . ${{ matrix.os }}
+      - name: Check out Repo
+        uses: actions/checkout@v3
+      - name: Run Docker Run!
+        run: curl -s https://raw.githubusercontent.com/perfsonar/docker-oneshot-builder/main/build | sh -s - . ${{ matrix.os }}
+      - name: Show Stuff
+        run: ls -alhR
