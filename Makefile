@@ -1,4 +1,4 @@
 
 build:
-	touch foo bar
+	touch foo bar baz
 	false
