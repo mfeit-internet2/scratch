@@ -1,3 +1,3 @@
 
 build:
-  touch foo bar
+	touch foo bar
