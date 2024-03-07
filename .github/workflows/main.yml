@@ -20,9 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       # TODO: Check out branch
-      - run: mkdr -p testbed
+      - run: mkdir -p testbed
       - run: echo '"Hello there."' > testbed/testbed.json
       - name: Publish the result
         uses: actions/upload-artifact@v4
