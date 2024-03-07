@@ -1,17 +1,35 @@
 name: scratch-build
 on: push
 jobs:
-  build:
 
-    strategy:
-      matrix:
-          os: [ 'el7', 'el8', 'el9', 'd10', 'u18', 'u20' ]
- 
+###   build:
+### 
+###     strategy:
+###       matrix:
+###           os: [ 'el7', 'el8', 'el9', 'd10', 'u18', 'u20' ]
+###  
+###     runs-on: ubuntu-latest
+### 
+###     steps:
+###       - name: Check out Repo
+###         uses: actions/checkout@v3
+###       - name: Run Docker Run!
+###         run: curl -s https://raw.githubusercontent.com/perfsonar/docker-oneshot-builder/main/build | sh -s - . ${{ matrix.os }}
+
+  single:
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out Repo
         uses: actions/checkout@v3
-      - name: Run Docker Run!
-        run: curl -s https://raw.githubusercontent.com/perfsonar/docker-oneshot-builder/main/build | sh -s - . ${{ matrix.os }}
+      # TODO: Check out branch
+      - run: mkdr -p testbed
+      - run: echo '"Hello there."' > testbed/testbed.json
+      - name: Publish the result
+        uses: actions/upload-artifact@v4
+        with:
+          name: development-testbed
+          path: testbed/testbed.json
 
+
+#      - name: Build testbed configuration
+#        run: make -C testbed
