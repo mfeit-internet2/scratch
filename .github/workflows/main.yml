@@ -29,7 +29,8 @@ jobs:
         with:
           name: development-testbed
           path: testbed/testbed.json
-
+          # TODO: Remove for production
+          retention-days: 2
 
 #      - name: Build testbed configuration
 #        run: make -C testbed
