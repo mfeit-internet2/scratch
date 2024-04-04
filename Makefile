@@ -1,4 +1,4 @@
 
 build:
-	touch foo bar baz
+	touch foo bar baz quux
 
